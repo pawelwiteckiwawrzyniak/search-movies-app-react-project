@@ -1,11 +1,12 @@
-import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { useState, useEffect, Suspense } from 'react';
-import { BackLink } from 'components/BackLink';
+import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
+import BackLink from 'components/BackLink';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState('');
   const [cast, setCast] = useState([]);
   const [review, setReview] = useState([]);
+  const outlet = { cast: cast, review: review };
 
   const location = useLocation();
   const backToLink = location.state?.from ?? '/movies';
@@ -13,7 +14,7 @@ const MovieDetails = () => {
   const { id } = useParams();
   const url = `https://api.themoviedb.org/3/movie/${id}`;
   const apiKey = `?api_key=72798596a23321893a7ef47e798d0f72`;
-  const imageURL = 'https://image.tmdb.org/t/p/w500/';
+  const imageURL = 'https://image.tmdb.org/t/p/w300/';
 
   useEffect(() => {
     fetchMovieById();
@@ -26,7 +27,6 @@ const MovieDetails = () => {
         url + apiKey + '&append_to_response=credits,reviews'
       );
       const data = await response.json();
-      console.log(data);
       setMovie(data);
       setCast(data.credits.cast);
       setReview(data.reviews.results);
@@ -78,7 +78,7 @@ const MovieDetails = () => {
             </li>
           </ul>
           <Suspense fallback={<div>Loading...</div>}>
-            <Outlet context={(cast, review)} />
+            <Outlet context={outlet} />
           </Suspense>
         </div>
       </div>

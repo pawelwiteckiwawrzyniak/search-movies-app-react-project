@@ -1,15 +1,19 @@
 import { useOutletContext } from 'react-router-dom';
 
-export const Cast = ({ cast }) => {
+const Cast = ({ cast }) => {
   cast = useOutletContext();
+  const imageURL = 'https://image.tmdb.org/t/p/h100/';
+
   return (
     <ul>
-      {cast.map(person => (
+      {cast.cast.map(person => (
         <li key={person.id}>
-          <img
-            src={'https://image.tmdb.org/t/p/w500' + person.profile_path}
-            alt={person.name}
-          />
+          {person.profile_path !== null ? (
+            <img src={imageURL + person.profile_path} alt={person.name} />
+          ) : (
+            <span>No image</span>
+          )}
+
           <span>{person.name}</span>
           <span>{person.character}</span>
         </li>
@@ -17,3 +21,5 @@ export const Cast = ({ cast }) => {
     </ul>
   );
 };
+
+export default Cast;

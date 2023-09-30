@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { SearchForm } from 'components/SearchForm';
-import { Movies } from 'components/Movies';
+import SearchForm from 'components/SearchForm';
+import Movies from 'components/Movies';
 
 const SearchMovies = () => {
   const [movies, setMovies] = useState([]);
