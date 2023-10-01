@@ -1,15 +1,16 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
-import BackLink from 'components/BackLink';
+import BackLink from 'components/BackLink/BackLink';
+import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState('');
   const [cast, setCast] = useState([]);
   const [review, setReview] = useState([]);
+  const [location, setLocation] = useState();
   const outlet = { cast: cast, review: review };
 
-  const location = useLocation();
-  const backToLink = location.state?.from ?? '/movies';
+  const locationParams = useLocation();
 
   const { id } = useParams();
   const url = `https://api.themoviedb.org/3/movie/${id}`;
@@ -18,6 +19,7 @@ const MovieDetails = () => {
 
   useEffect(() => {
     fetchMovieById();
+    setLocation(locationParams.state?.from ?? '/goit-react-hw-05-movies/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -49,38 +51,40 @@ const MovieDetails = () => {
       arrayOfGenres.push(genre.name);
     }
 
-    return arrayOfGenres.join(' ');
+    return arrayOfGenres.join(' | ');
   };
 
   return (
-    <div>
-      <BackLink to={backToLink}>Back</BackLink>
-      <div>
+    <div className={css.box}>
+      <BackLink to={location}>Go Back</BackLink>
+      <div className={css.main}>
         <img src={getPoster(movie.poster_path)} alt=""></img>
-        <div>
+        <div className={css.details}>
           <h1>
             {movie.title} ({getDate(movie.release_date)})
           </h1>
-          <span>User Average Vote: {movie.vote_average}</span>
+          <span className={css.span}>
+            User Average Vote: {movie.vote_average}
+          </span>
           <h2>Overview</h2>
-          <span>{movie.overview}</span>
+          <span className={css.span}>{movie.overview}</span>
           <h3>Genres</h3>
-          <span>{getGenres(movie.genres)}</span>
+          <span className={css.span}>{getGenres(movie.genres)}</span>
         </div>
-        <div>
-          <span>Additional information</span>
-          <ul>
-            <li>
-              <Link to="cast">Cast</Link>
-            </li>
-            <li>
-              <Link to="reviews">Reviews</Link>
-            </li>
-          </ul>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Outlet context={outlet} />
-          </Suspense>
-        </div>
+      </div>
+      <div className={css.info}>
+        <h3>Additional information</h3>
+        <ul className={css.list}>
+          <li className={css.list_item}>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet context={outlet} />
+        </Suspense>
       </div>
     </div>
   );
