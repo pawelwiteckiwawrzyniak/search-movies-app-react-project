@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/858.823ec53e.chunk.css","mappings":"AAAA,wBACE,gBACF,CAEA,+BACE,WACF,CCNA,qBACE,iBACF","sources":["components/SearchForm/SearchForm.module.css","components/Movies/Movies.module.css"],"sourcesContent":[".form {\n  margin-left: 10px;\n}\n\n.form__input {\n  width: 300px;\n}\n",".item {\n  margin-bottom: 5px;\n}\n"],"names":[],"sourceRoot":""}

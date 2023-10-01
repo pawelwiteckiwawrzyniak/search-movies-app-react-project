@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/99.56b7adb0.chunk.css","mappings":"AAAA,wBACE,iBACF,CCFA,mBACE,aAAc,CACd,gBACF","sources":["components/MoviesHome/MoviesHome.module.css","pages/Home/Home.module.css"],"sourcesContent":[".item {\n  margin-bottom: 5px;\n}\n",".title {\n  display: block;\n  margin-left: 10px;\n}\n"],"names":[],"sourceRoot":""}
