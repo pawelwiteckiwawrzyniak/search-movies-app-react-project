@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useOutletContext } from 'react-router-dom';
 import css from './Cast.module.css';
 
@@ -27,6 +28,18 @@ const Cast = ({ context }) => {
       ))}
     </ul>
   );
+};
+
+Cast.propTypes = {
+  context: PropTypes.shape({
+    cast: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        profile_path: PropTypes.string,
+        name: PropTypes.string,
+      })
+    ),
+  }),
 };
 
 export default Cast;

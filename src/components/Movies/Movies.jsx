@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import css from './Movies.module.css';
 
@@ -14,6 +15,15 @@ const Movies = ({ movies }) => {
       ))}
     </ul>
   );
+};
+
+Movies.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+    })
+  ),
 };
 
 export default Movies;

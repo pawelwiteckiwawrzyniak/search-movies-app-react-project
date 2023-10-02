@@ -28,5 +28,3 @@ export const SharedLayout = () => {
     </div>
   );
 };
-
-/* export default SharedLayout; */

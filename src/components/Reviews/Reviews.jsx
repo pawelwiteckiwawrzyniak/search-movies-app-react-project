@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useOutletContext } from 'react-router-dom';
 import css from './Reviews.module.css';
 
@@ -16,6 +17,18 @@ const Reviews = ({ context }) => {
       ))}
     </ul>
   );
+};
+
+Reviews.propTypes = {
+  context: PropTypes.shape({
+    review: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        author: PropTypes.string,
+        content: PropTypes.string,
+      })
+    ),
+  }),
 };
 
 export default Reviews;
