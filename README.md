@@ -23,6 +23,9 @@
 
 ## Project Features:
 
+- Popular Movies Showcase:
+  - The main page highlights currently popular movies, offering users an engaging selection.
+    ![Home](./assets/home.png)
 - Movie Search:
   - Users can search for movies, triggering the display of relevant details such as posters, titles, release dates, and descriptions.
     ![Search](./assets/search.png)
@@ -30,9 +33,6 @@
   - Upon selecting a movie, users can view additional information, including comments and cast details.
     ![Movie](./assets/movie.png)
     ![Cast](./assets/cast.png)
-- Popular Movies Showcase:
-  - The main page highlights currently popular movies, offering users an engaging selection.
-    ![Home](./assets/home.png)
 - Lazy Loading for Enhanced Performance:
   - Lazy imports are implemented for efficient code splitting, optimizing the loading of components as needed.
     
