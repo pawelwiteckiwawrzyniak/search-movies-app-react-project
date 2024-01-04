@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "search-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pawelwiteckiwawrzyniak.github.io/goit-react-hw-05-movies/",
+  "homepage": "https://pawelwiteckiwawrzyniak.github.io/search-movies-app-react-project/",
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.3",

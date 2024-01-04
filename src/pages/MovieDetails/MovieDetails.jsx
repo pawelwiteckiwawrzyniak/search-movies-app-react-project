@@ -19,7 +19,9 @@ const MovieDetails = () => {
 
   useEffect(() => {
     fetchMovieById();
-    setLocation(locationParams.state?.from ?? '/goit-react-hw-05-movies/');
+    setLocation(
+      locationParams.state?.from ?? '/search-movies-app-react-project/'
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

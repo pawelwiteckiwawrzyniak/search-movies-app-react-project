@@ -6,7 +6,7 @@ const Cast = ({ context }) => {
   context = useOutletContext();
   const imageURL = 'https://image.tmdb.org/t/p/h100/';
   return (
-    <ul>
+    <ul className={css.castList}>
       {context.cast.map(person => (
         <li key={person.id}>
           {person.profile_path !== null ? (
